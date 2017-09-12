@@ -10,6 +10,7 @@ class GlobalTestOpenAcademyCourse(TransactionCase):
         Test:
             - Create course
             - Trigger constraints
+            - Duplicate course
     """
 
     # Seudo-constructor of test setUp
