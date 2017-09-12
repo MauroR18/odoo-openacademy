@@ -56,7 +56,7 @@ class GlobalTestOpenAcademyCourse(TransactionCase):
             to raise constraint of unique name
         """
         new_id = self.create_course('test1', 'test_description', None)
-        print "new_id: ", new_id
+        # print "new_id: ", new_id
 
         with self.assertRaisesRegexp(
                  IntegrityError,
@@ -64,7 +64,7 @@ class GlobalTestOpenAcademyCourse(TransactionCase):
                  ' constraint "openacademy_course_name_unique"'
                 ):
             new_id2 = self.create_course('test1', 'test_description', None)
-            print "new_id2: ", new_id2
+            # print "new_id2: ", new_id2
 
     def test_15_duplicate_course(self):
         """
@@ -74,4 +74,4 @@ class GlobalTestOpenAcademyCourse(TransactionCase):
         course = self.env.ref('openacademy.course0')
         course_id = course.copy()
 
-        print "copy_course_id: ", course_id
+        # print "copy_course_id: ", course_id
