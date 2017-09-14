@@ -4,6 +4,7 @@ from odoo.tests.common import TransactionCase
 
 from odoo.exceptions import ValidationError
 
+
 class GlobalTestOpenAcademySession(TransactionCase):
     """
         Global test for session model.
@@ -29,12 +30,11 @@ class GlobalTestOpenAcademySession(TransactionCase):
 
         with self.assertRaisesRegexp(
                 ValidationError,
-                "A session's instructor can't be an attendee"
-            ):
+                "A session's instructor can't be an attendee"):
             self.session.create({
-                'name' : 'Session test 1',
-                'seats' : 1,
-                'instructor_id' : self.partner.id,
-                'attendee_ids' : [(6, 0, [self.partner.id])],
-                'course_id' : self.course.id
+                'name': 'Session test 1',
+                'seats': 1,
+                'instructor_id': self.partner.id,
+                'attendee_ids': [(6, 0, [self.partner.id])],
+                'course_id': self.course.id
             })
