@@ -21,4 +21,3 @@
 #         return http.request.render('openacademy.object', {
 #             'object': obj
 #         })
-

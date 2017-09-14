@@ -43,10 +43,12 @@ class GlobalTestOpenAcademyCourse(TransactionCase):
         """
 
         # Error raised expected with message expected
-        with self.assertRaisesRegexp(IntegrityError,
-                 'new row for relation "openacademy_course" violates'
-                 ' check constraint '
-                 '"openacademy_course_name_description_check"'):
+        with self.assertRaisesRegexp(
+            IntegrityError,
+            'new row for relation "openacademy_course" violates'
+            ' check constraint '
+            '"openacademy_course_name_description_check"'
+        ):
             # create a course with same name and description to raise an error
             self.create_course('test', 'test', None)
 
@@ -60,9 +62,11 @@ class GlobalTestOpenAcademyCourse(TransactionCase):
         self.create_course('test1', 'test_description', None)
         # print "new_id: ", new_id
 
-        with self.assertRaisesRegexp(IntegrityError,
-                 'duplicate key value violates unique'
-                 ' constraint "openacademy_course_name_unique"'):
+        with self.assertRaisesRegexp(
+            IntegrityError,
+            'duplicate key value violates unique'
+            ' constraint "openacademy_course_name_unique"'
+        ):
             # new_id2 =
             self.create_course('test1', 'test_description', None)
             # print "new_id2: ", new_id2
